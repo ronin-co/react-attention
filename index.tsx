@@ -1,3 +1,5 @@
+'use client';
+
 import React, {
   type MutableRefObject,
   type ReactNode,
