@@ -2,7 +2,7 @@
   "name": "react-attention",
   "version": "1.0.1",
   "description": "Claim attention in components",
-  "main": "dist/index.jsx",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --project tsconfig.json",
