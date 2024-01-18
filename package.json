@@ -2,10 +2,10 @@
   "name": "react-attention",
   "version": "1.0.3",
   "description": "Claim attention in React components",
-  "main": "dist/index.client.js",
-  "types": "dist/index.client.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc --project tsconfig.json && mv dist/index.js dist/index.client.js && mv dist/index.d.ts dist/index.client.d.ts ",
+    "build": "tsc --project tsconfig.json",
     "prepare": "husky install && npm run build",
     "prettify": "prettier --write --ignore-unknown \"**/*.{css,js,json,jsx,ts,tsx}\""
   },
