@@ -2,16 +2,15 @@
   "name": "react-attention",
   "version": "1.0.0",
   "description": "Claim attention in components",
-  "main": "index.jsx",
-  "types": "index.d.ts",
+  "main": "dist/index.jsx",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --project tsconfig.json",
     "prepare": "husky install && npm run build",
     "prettify": "prettier --write --ignore-unknown \"**/*.{css,js,json,jsx,ts,tsx}\""
   },
   "files": [
-    "index.jsx",
-    "index.d.ts"
+    "dist"
   ],
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css,md}": "prettier --write --ignore-path .gitignore"
