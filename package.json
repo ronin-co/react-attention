@@ -2,14 +2,14 @@
   "name": "react-attention",
   "version": "1.0.0",
   "description": "Claim attention in components",
-  "main": "index.js",
+  "main": "index.jsx",
   "types": "index.d.ts",
   "scripts": {
-    "build": "tsc index.ts --declaration",
+    "build": "tsc --project tsconfig.json",
     "prepare": "husky install && npm run build"
   },
   "files": [
-    "index.js",
+    "index.jsx",
     "index.d.ts"
   ],
   "lint-staged": {
@@ -31,8 +31,11 @@
     "url": "https://github.com/ronin-new/react-attention/issues"
   },
   "homepage": "https://github.com/ronin-new/react-attention#readme",
+  "peerDependencies": {
+    "react": "*"
+  },
   "devDependencies": {
-    "@types/node": "20.11.5",
+    "@types/react": "18.2.48",
     "husky": "8.0.3",
     "lint-staged": "15.2.0",
     "prettier": "3.2.4",
