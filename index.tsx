@@ -5,7 +5,7 @@ import {
   createContext,
   useEffect,
   useRef,
-  useContext
+  useContext,
 } from 'react';
 
 interface AttentionContextConfig {
@@ -27,7 +27,7 @@ interface AttentionContextValue {
 }
 
 interface AttentionProviderProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 const AttentionContext = createContext<AttentionContextValue | null>(null);
@@ -65,12 +65,10 @@ const AttentionProvider = ({ children }: AttentionProviderProps): JSX.Element =>
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       for (const [id, storedConfig] of items.current.entries()) {
-        const ref = 'ref' in storedConfig ? (storedConfig.ref as MutableRefObject<HTMLElement | null>) : null;
-        const element = ref?.current;
+        const ref = storedConfig.ref?.current;
+        if (!ref) continue;
 
-        if (!element) continue;
-
-        const isInside = element.contains(event.target as Node);
+        const isInside = ref.contains(event.target as Node);
         if (isInside) continue;
 
         storedConfig.blur();

@@ -6,7 +6,8 @@
   "types": "index.d.ts",
   "scripts": {
     "build": "tsc --project tsconfig.json",
-    "prepare": "husky install && npm run build"
+    "prepare": "husky install && npm run build",
+    "prettify": "prettier --write --ignore-unknown \"**/*.{css,js,json,jsx,ts,tsx}\""
   },
   "files": [
     "index.jsx",
