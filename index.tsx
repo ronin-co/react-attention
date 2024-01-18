@@ -1,4 +1,12 @@
-import { type MutableRefObject, useEffect, useRef, ReactNode, JSX, createContext } from 'react';
+import {
+  type MutableRefObject,
+  type ReactNode,
+  type JSX,
+  createContext,
+  useEffect,
+  useRef,
+  useContext
+} from 'react';
 
 interface AttentionContextConfig {
   /**
@@ -18,11 +26,11 @@ interface AttentionContextValue {
   itemDisappeared: (id: string) => void;
 }
 
-const AttentionContext = createContext<AttentionContextValue | null>(null);
-
-interface AttentionContextProviderProps {
+interface AttentionProviderProps {
     children: ReactNode;
 }
+
+const AttentionContext = createContext<AttentionContextValue | null>(null);
 
 // This component is used for keeping track of which UI element is currently
 // claiming the user's undivided attention (such as a confirmation prompt).
@@ -30,7 +38,7 @@ interface AttentionContextProviderProps {
 // other UI items claiming the user's attention afterwards can hide it, which
 // prevents multiple UI elements of this kind trying to claim the user's
 // attention at the same time.
-const AttentionContextProvider = ({ children }: AttentionContextProviderProps): JSX.Element => {
+const AttentionProvider = ({ children }: AttentionProviderProps): JSX.Element => {
   const items = useRef<Map<string, AttentionContextConfig>>(new Map());
 
   // This gets called whenever a new item is showing.
@@ -81,4 +89,38 @@ const AttentionContextProvider = ({ children }: AttentionContextProviderProps): 
   );
 };
 
-export { AttentionContextProvider };
+/**
+ * Allows components to claim the user's attention in the UI, by blurring
+ * all other components that might be claiming attention.
+ *
+ * @param claiming Whether the component is currently claiming attention.
+ *
+ * @param blur A function for resetting the component back to its original
+ * state whenever a different component claims the attention.
+ *
+ * @param element A reference to the DOM element associated with the component,
+ * which is used to reset the component when a click happens outside of it. In
+ * the case that the component wants to manage these events itself, `null` must
+ * be passed explicitly, to ensure we never forget handling the events.
+ */
+const useAttention = (
+  claiming: boolean,
+  blur: () => void,
+  element: MutableRefObject<HTMLDivElement | null> | null,
+) => {
+  const attention = useContext(AttentionContext);
+  if (!attention) throw new Error('`useAttention` can only be used inside `AttentionContextProvider`.');
+
+  useEffect(() => {
+    if (!claiming) return;
+
+    const attentionId = attention.itemAppeared({
+      blur,
+      ref: element !== null ? element : undefined,
+    });
+
+    return () => attention.itemDisappeared(attentionId);
+  }, [claiming]);
+};
+
+export { AttentionProvider, useAttention };
