@@ -6,7 +6,6 @@
     "baseUrl": ".",
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "skipLibCheck": true,
     "noImplicitAny": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,

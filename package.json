@@ -1,6 +1,6 @@
 {
   "name": "react-attention",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Claim attention in components",
   "main": "dist/index.jsx",
   "types": "dist/index.d.ts",
