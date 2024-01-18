@@ -107,7 +107,7 @@ const useAttention = (
   element: MutableRefObject<HTMLDivElement | null> | null,
 ) => {
   const attention = useContext(AttentionContext);
-  if (!attention) throw new Error('`useAttention` can only be used inside `AttentionContextProvider`.');
+  if (!attention) throw new Error('`useAttention` can only be used inside `AttentionProvider`.');
 
   useEffect(() => {
     if (!claiming) return;
