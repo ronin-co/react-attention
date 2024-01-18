@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "jsx": "preserve",
+    "jsx": "react",
     "baseUrl": ".",
     "esModuleInterop": true,
     "moduleResolution": "node",
