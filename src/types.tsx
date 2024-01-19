@@ -1,3 +1,5 @@
+'use client';
+
 import type { MutableRefObject, ReactNode } from 'react';
 
 export interface AttentionProviderProps {
