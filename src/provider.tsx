@@ -1,6 +1,6 @@
 'use client';
 
-import React, { type ReactNode, type JSX, useEffect, useRef } from 'react';
+import React, { type JSX, useEffect, useRef } from 'react';
 import AttentionContext from './context';
 import type { AttentionContextConfig, AttentionProviderProps } from './types';
 
