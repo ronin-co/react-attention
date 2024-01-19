@@ -2,7 +2,7 @@
 
 import { type MutableRefObject, useEffect, useContext } from 'react';
 
-import { AttentionContext } from './context';
+import AttentionContext from './context';
 
 /**
  * Allows components to claim the user's attention in the UI, by blurring

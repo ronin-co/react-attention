@@ -1,11 +1,8 @@
 'use client';
 
 import React, { type ReactNode, type JSX, useEffect, useRef } from 'react';
-import { AttentionContext, type AttentionContextConfig } from './context';
-
-interface AttentionProviderProps {
-  children: ReactNode;
-}
+import AttentionContext from './context';
+import type { AttentionContextConfig, AttentionProviderProps } from './types';
 
 // This component is used for keeping track of which UI element is currently
 // claiming the user's undivided attention (such as a confirmation prompt).
