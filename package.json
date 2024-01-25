@@ -1,6 +1,6 @@
 {
   "name": "react-attention",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Claim attention in React components",
   "main": "dist/index.client.js",
   "types": "dist/index.client.d.ts",
