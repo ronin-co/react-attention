@@ -31,7 +31,6 @@ export default Layout;
 Lastly, make use of the hook inside your components:
 
 ```tsx
-import { useState } from 'react';
 import { useAttention } from 'react-attention';
 
 const Overlay = ({ children }) => {
@@ -39,17 +38,15 @@ const Overlay = ({ children }) => {
 
     useAttention(visible, () => setVisible(false));
 
-    return (
-        <div className={visible ? undefined : 'hidden'}>
-            I am an overlay
-        </div>
-    );
+    return <div className={visible ? undefined : 'hidden'} />
 };
 ```
 
 ## Additional Options
 
-If you would like the current component to be reset when the user clicks outside of it, `react-attention` can handle that automatically for you. Just pass a third argument containing a reference to the element:
+If you would like the current component to be reset when the user clicks outside of it, `react-attention` can handle that automatically for you. 
+
+Just pass a third argument containing a reference to the element:
 
 ```tsx
 const element = useRef(null);
