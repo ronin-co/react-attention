@@ -1,5 +1,7 @@
 # react-attention
 
+> This package powers [RONIN](https://ronin.co) – check it out if you'd like to see it in action!
+
 Web apps tend to be made up of several different UI pieces that could potentially claim the user's attention, such as confirmation prompts, dialogs, alerts, or similar.
 
 Oftentimes, apps choose to let people interact with multiple of such components in different places in the UI, which means that multiple "flows" of interaction can be started at the same time.
