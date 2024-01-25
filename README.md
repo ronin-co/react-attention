@@ -14,9 +14,9 @@ First, install the package:
 npm install react-attention --save
 ```
 
-Next, add the context provider in the root layout of your app:
+Next, add a context provider at the root of your app:
 
-```javascript
+```tsx
 import { AttentionProvider } from 'react-attention';
 
 const Layout = ({ children }) => (
@@ -28,7 +28,7 @@ export default Layout;
 
 Lastly, make use of the hook inside your components:
 
-```javascript
+```tsx
 import { useState } from 'react';
 import { useAttention } from 'react-attention';
 
@@ -47,7 +47,13 @@ const Overlay = ({ children }) => {
 
 ## Additional Options
 
-...
+If you would like the current component to be reset when the user clicks outside of it, `react-attention` can handle that automatically for you. Just pass a third argument containing a reference to the element:
+
+```tsx
+const element = useRef(null);
+
+useAttention(visible, () => setVisible(false), element);
+```
 
 ## Author
 
