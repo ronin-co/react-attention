@@ -52,7 +52,6 @@ const AttentionProvider = ({ children }: AttentionProviderProps): JSX.Element =>
     return () => window.removeEventListener('click', handleClick);
   }, []);
 
-
   return (
     <AttentionContext.Provider value={{ itemAppeared, itemDisappeared }}>
       {children}
