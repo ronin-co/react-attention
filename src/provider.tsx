@@ -1,6 +1,6 @@
 'use client';
 
-import { type JSX, useEffect, useRef } from 'react';
+import React, { type JSX, useEffect, useRef } from 'react';
 import AttentionContext from './context';
 import type { AttentionContextConfig, AttentionProviderProps } from './types';
 
@@ -51,6 +51,7 @@ const AttentionProvider = ({ children }: AttentionProviderProps): JSX.Element =>
     window.addEventListener('click', handleClick);
     return () => window.removeEventListener('click', handleClick);
   }, []);
+
 
   return (
     <AttentionContext.Provider value={{ itemAppeared, itemDisappeared }}>
