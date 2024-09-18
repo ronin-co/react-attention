@@ -26,7 +26,8 @@ const useAttention = (
   const attention = useContext(AttentionContext);
   if (!attention) throw new Error('`useAttention` can only be used inside `AttentionProvider`.');
 
-  useEffect(() => {
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+    useEffect(() => {
     if (!claiming) return;
 
     const attentionId = attention.itemAppeared({
