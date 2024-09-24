@@ -9,7 +9,8 @@
     "prepare": "husky install && npm run build",
     "lint": "bun run lint:tsc && bun run lint:biome --",
     "lint:biome": "biome check --apply .",
-    "lint:tsc": "tsc --noEmit --pretty"
+    "lint:tsc": "tsc --noEmit --pretty",
+    "format": "biome format --write"
   },
   "files": ["dist"],
   "lint-staged": {
@@ -34,7 +35,6 @@
     "@types/react": "18.3.7",
     "husky": "8.0.3",
     "lint-staged": "15.2.0",
-    "prettier": "3.2.4",
     "typescript": "5.3.3"
   }
 }

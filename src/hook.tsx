@@ -24,9 +24,10 @@ const useAttention = (
   element: MutableRefObject<HTMLDivElement | null> | null,
 ) => {
   const attention = useContext(AttentionContext);
-  if (!attention) throw new Error('`useAttention` can only be used inside `AttentionProvider`.');
+  if (!attention)
+    throw new Error('`useAttention` can only be used inside `AttentionProvider`.');
 
-    useEffect(() => {
+  useEffect(() => {
     if (!claiming) return;
 
     const attentionId = attention.itemAppeared({
