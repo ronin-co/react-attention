@@ -36,7 +36,7 @@ const useAttention = (
     });
 
     return () => attention.itemDisappeared(attentionId);
-  }, [claiming]);
+  }, [claiming, attention, blur, element]);
 };
 
 export default useAttention;
