@@ -13,7 +13,7 @@
   },
   "files": ["dist"],
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,css,md}": "prettier --write --ignore-path .gitignore"
+    "*.{js,jsx,ts,tsx,css,md}": "biome check --apply"
   },
   "repository": {
     "type": "git",
