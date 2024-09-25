@@ -7,24 +7,20 @@
   "scripts": {
     "build": "tsc --project tsconfig.json && mv dist/index.js dist/index.client.js && mv dist/index.d.ts dist/index.client.d.ts",
     "prepare": "husky install && npm run build",
-    "prettify": "prettier --write --ignore-unknown \"**/*.{css,js,json,jsx,ts,tsx}\""
+    "lint": "bun run lint:tsc && bun run lint:biome --",
+    "lint:biome": "biome check --apply .",
+    "lint:tsc": "tsc --noEmit --pretty",
+    "format": "biome format --write"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,css,md}": "prettier --write --ignore-path .gitignore"
+    "*.{js,jsx,ts,tsx,css,md}": "biome check --apply"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ronin-co/react-attention.git"
   },
-  "keywords": [
-    "tailwindcss",
-    "named",
-    "groups",
-    "nested"
-  ],
+  "keywords": ["tailwindcss", "named", "groups", "nested"],
   "author": "leo",
   "license": "MIT",
   "bugs": {
@@ -35,10 +31,10 @@
     "react": "*"
   },
   "devDependencies": {
-    "@types/react": "18.2.48",
+    "@biomejs/biome": "1.9.1",
+    "@types/react": "18.3.7",
     "husky": "8.0.3",
     "lint-staged": "15.2.0",
-    "prettier": "3.2.4",
     "typescript": "5.3.3"
   }
 }

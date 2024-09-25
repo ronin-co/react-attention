@@ -15,8 +15,8 @@
     "module": "esnext",
     "outDir": "dist",
     "declaration": true,
-    "resolveJsonModule": true,
+    "resolveJsonModule": true
   },
   "include": ["**/*.tsx", "**/*.ts"],
-  "exclude": ["node_modules", "dist"],
+  "exclude": ["node_modules", "dist"]
 }
